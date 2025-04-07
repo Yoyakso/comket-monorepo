@@ -26,10 +26,10 @@ jobs:
       run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     - name: 📦 Build Docker Image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/citest:latest .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/comket-backend:latest apps/backend
 
     - name: 🚀 Push Docker Image to DockerHub
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/citest:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/comket-backend:latest
 
     - name: 🔑 Deploy to EC2 with SSH
       uses: appleboy/ssh-action@v1.0.0
@@ -38,7 +38,7 @@ jobs:
         username: ec2-user
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/citest:latest
-          docker stop citest || true
-          docker rm citest || true
-          docker run -d -p 8080:8080 --name citest ${{ secrets.DOCKER_USERNAME }}/citest:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/comket-backend:latest
+          docker stop comket-backend || true
+          docker rm comket-backend || true
+          docker run -d -p 8080:8080 --name comket-backend ${{ secrets.DOCKER_USERNAME }}/comket-backend:latest
