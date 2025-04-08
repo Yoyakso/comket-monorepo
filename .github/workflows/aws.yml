@@ -21,6 +21,9 @@ jobs:
     - name: 🛠️ Build Spring Boot with Gradle
       run: ./gradlew clean build -x test
       working-directory: apps/backend
+      env:
+        DB_USERNAME: ${{ secrets.RDS_USERNAME }}
+        DB_PASSWORD: ${{ secrets.RDS_PASSWORD }}
 
     - name: 🐳 Log in to DockerHub
       run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
