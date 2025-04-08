@@ -10,6 +10,12 @@
         "outputPath": "dist/apps/frontend",
         "configFile": "apps/frontend/vite.config.ts"
       }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": {
+        "passWithNoTests": true
+      }
     }
   }
 }
