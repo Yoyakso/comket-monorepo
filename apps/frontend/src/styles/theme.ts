@@ -69,6 +69,8 @@ export const theme = {
   primaryHover: '#4758F0',
   primaryDisabled: '#EFF1F6',
 
+  neutral: '#EFF1F6',
+
   textHeading: '#17191C',
   textPrimary: '#25282D',
   textSecondary: '#525964',
