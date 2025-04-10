@@ -19,7 +19,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.GH_DEPLOY_TOKEN }}
         with:
-          source-directory: 'dist/apps/frontend'
+          source-directory: '.'
           destination-github-username: yuminnnnni
           destination-repository-name: comket-monorepo
           user-email: ${{ secrets.EMAIL }}

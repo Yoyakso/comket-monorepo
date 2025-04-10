@@ -65,6 +65,12 @@ export const theme = {
   teal900: '#0D7758',
   teal1000: '#0B5841',
 
+  primary: '#192EEC',
+  primaryHover: '#4758F0',
+  primaryDisabled: '#EFF1F6',
+
+  neutral: '#EFF1F6',
+
   textHeading: '#17191C',
   textPrimary: '#25282D',
   textSecondary: '#525964',
